@@ -1,32 +1,4 @@
-"""
-test_circuit_breaker.py
-========================
-Standalone test suite for the CircuitBreaker class.
 
-Does NOT require the FastAPI server to be running for Scenarios A–C.
-Scenario D (header verification) requires: uvicorn main:app --port 8000
-
-Run:
-    python test_circuit_breaker.py
-
-Scenarios
----------
-  A  Baseline (no breaker) — every request blocks for the full simulated timeout.
-     Shows why the naive approach freezes the server.
-
-  B  With breaker — the first THRESHOLD requests pay the timeout cost; from
-     the THRESHOLD+1-th request onward, calls are blocked instantly and the
-     fallback is returned. Total wall time is drastically lower.
-
-  C  Recovery path — trip the breaker, wait out the cooldown, confirm the
-     breaker moves through HALF_OPEN and back to CLOSED on a healthy probe.
-
-  D  Header check — verifies X-Student-ID: BSCS23166 appears on every
-     endpoint (requires live server).
-
-Author : Noor Fatima
-Roll No: BSCS23166
-"""
 
 from __future__ import annotations
 
