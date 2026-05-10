@@ -1,26 +1,4 @@
-"""
-circuit_breaker.py
-==================
-A lightweight async Circuit Breaker for protecting external service calls.
 
-Design
-------
-The breaker tracks three states:
-
-  CLOSED    All calls go through normally. Each failure increments a counter.
-            Once the counter hits `failure_threshold`, the breaker trips to OPEN.
-
-  OPEN      All calls are short-circuited immediately — no I/O occurs.
-            A configurable `reset_after` cooldown begins when the breaker opens.
-
-  HALF_OPEN After the cooldown expires, exactly one probe call is allowed.
-            Success  → transitions back to CLOSED and clears the failure count.
-            Failure  → immediately returns to OPEN and restarts the cooldown.
-
-Author : Noor Fatima
-Roll No: BSCS23166
-Course : Parallel and Distributed Computing (PDC)
-"""
 
 from __future__ import annotations
 
