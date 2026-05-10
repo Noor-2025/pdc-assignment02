@@ -1,20 +1,4 @@
-"""
-main.py
-=======
-StudySync FastAPI backend — PDC Assignment 2, Part 3.
 
-Demonstrates the Circuit Breaker pattern to fix the LLM fault-tolerance bug:
-  Before: A slow/down LLM blocks every server thread for up to 60 seconds.
-  After : The breaker short-circuits failing calls and returns an instant
-          fallback, keeping the rest of the application fully responsive.
-
-Every HTTP response carries the mandatory header:
-    X-Student-ID: BSCS23166
-
-Author : Noor Fatima
-Roll No: BSCS23166
-Course : Parallel and Distributed Computing (PDC)
-"""
 
 import logging
 from contextlib import asynccontextmanager
